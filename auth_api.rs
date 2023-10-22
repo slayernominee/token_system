@@ -10,7 +10,7 @@ pub struct LoginBody {
     password: String
 }
 
-#[post("/auth/login")]
+#[post("/login")]
 pub async fn login(req_body: String) -> impl Responder {
     // todo: ip adresse blockieren nach 5 falschen anfragen ... (-> 1min) 429 too many requests
 
@@ -40,7 +40,7 @@ pub struct LogoutBody {
     token: String,
 }
 
-#[post("/auth/revoke")]
+#[post("/revoke")]
 pub async fn revoke(req_body: String) -> impl Responder {
     // todo: ip adresse blockieren nach 5 falschen anfragen ... (-> 1min) 429 too many requests
 
