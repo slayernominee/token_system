@@ -12,8 +12,6 @@ pub struct LoginBody {
 
 #[post("/login")]
 pub async fn login(req_body: String) -> impl Responder {
-    // todo: ip adresse blockieren nach 5 falschen anfragen ... (-> 1min) 429 too many requests
-
     let body_str = req_body.to_string();
     let body: LoginBody = serde_json::from_str(&body_str).unwrap();
 
@@ -42,8 +40,6 @@ pub struct LogoutBody {
 
 #[post("/revoke")]
 pub async fn revoke(req_body: String) -> impl Responder {
-    // todo: ip adresse blockieren nach 5 falschen anfragen ... (-> 1min) 429 too many requests
-
     let body_str = req_body.to_string();
     let body: LogoutBody = serde_json::from_str(&body_str).unwrap();
     let token = session::Token::by_string(&body.token);
