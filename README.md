@@ -28,7 +28,7 @@ mod auth_api;
 // wrap your routes with the tokencheck e.g.
 .service(
 web::scope("/api/v1")
-.wrap(tokencheck::TokenCheck)
+.wrap(tokencheck::TokenCheck) // ! Attention: Dont Wrap the the auth route (e.g. /auth_api/v1) in this because then no login would be possible without a valid token ...
 )
 
 // auth db creation 
